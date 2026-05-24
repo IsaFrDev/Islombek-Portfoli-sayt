@@ -84,7 +84,7 @@ const filterBtns = document.querySelectorAll(".filter-btn");
 async function fetchProjects() {
   if (!projectsGrid) return;
   try {
-    const res = await fetch("/api/projects");
+    const res = await fetch("/db/projects.json");
     const list = res.ok ? await res.json() : [];
 
     projectsGrid.innerHTML = "";
@@ -372,7 +372,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Fetch site data from API and render testimonials/certificates/contact
 async function fetchSite() {
   try {
-    const res = await fetch("/api/site");
+    const res = await fetch("/db/site.json");
     if (!res.ok) throw new Error("Failed to fetch site");
     const site = await res.json();
     renderTestimonials(site.testimonials || []);
