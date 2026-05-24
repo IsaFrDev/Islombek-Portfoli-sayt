@@ -176,52 +176,55 @@ function initializeModalListeners() {
 
 const contactForm = document.getElementById("contactForm");
 const statusMessage = document.getElementById("statusMessage");
-contactForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  let isValid = true;
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const phone = document.getElementById("phone").value.trim();
-  const subject = document.getElementById("subject").value.trim();
+if (contactForm) {
+  contactForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    let isValid = true;
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const subject = document.getElementById("subject").value.trim();
 
-  if (!name || !email || !phone || !subject) {
-    isValid = false;
-    statusMessage.innerHTML =
-      '<p style="color: #ff6b6b;">Iltimos, barcha maydonlarni to\'ldiring!</p>';
-    return;
-  }
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    isValid = false;
-    statusMessage.innerHTML =
-      "<p style=\"color: #ff6b6b;\">Email noto'g'ri!</p>";
-    return;
-  }
-
-  if (isValid) {
-    try {
-      const response = await fetch("/send", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, phone, subject }),
-      });
-      const data = await response.json();
-      if (data.ok) {
-        statusMessage.innerHTML =
-          '<p style="color: #00ff88;">Xabar muvaffaqiyatli yuborildi! Tez orada javob beraman. ✨</p>';
-        contactForm.reset();
-      } else {
-        statusMessage.innerHTML =
-          '<p style="color: #ff6b6b;">Xato yuz berdi. Qayta urinib ko\'ring.</p>';
-      }
-    } catch (error) {
+    if (!name || !email || !phone || !subject) {
+      isValid = false;
       statusMessage.innerHTML =
-        '<p style="color: #ff6b6b;">Server xatosi: ' + error.message + "</p>";
+        '<p style="color: #ff6b6b;">Iltimos, barcha maydonlarni to\'ldiring!</p>';
+      return;
     }
-  }
-});
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      isValid = false;
+      statusMessage.innerHTML =
+        "<p style=\"color: #ff6b6b;\">Email noto'g'ri!</p>";
+      return;
+    }
+
+    if (isValid) {
+      try {
+        const response = await fetch("/send", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email, phone, subject }),
+        });
+        const data = await response.json();
+        if (data.ok) {
+          statusMessage.innerHTML =
+            '<p style="color: #00ff88;">Xabar muvaffaqiyatli yuborildi! Tez orada javob beraman. ✨</p>';
+          contactForm.reset();
+        } else {
+          statusMessage.innerHTML =
+            '<p style="color: #ff6b6b;">Xato yuz berdi. Qayta urinib ko\'ring.</p>';
+        }
+      } catch (error) {
+        statusMessage.innerHTML =
+          '<p style="color: #ff6b6b;">Server xatosi: ' + error.message + "</p>";
+      }
+    }
+  });
+}
 
 const backToTop = document.getElementById("backToTop");
 window.addEventListener("scroll", () => {
+  if (!backToTop) return;
   if (window.pageYOffset > 300) {
     backToTop.classList.add("visible");
   } else {
@@ -244,7 +247,7 @@ window.addEventListener("scroll", () => {
     header.style.boxShadow = "none";
   }
 });
-backToTop.addEventListener("click", () => {
+if (backToTop) backToTop.addEventListener("click", () => {
   window.scrollTo({
     top: 0,
     behavior: "smooth",
