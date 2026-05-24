@@ -1,0 +1,106 @@
+[
+  {
+    "id": 101,
+    "title": "Jarvis AI",
+    "category": "web",
+    "icon": "fas fa-robot",
+    "description": "Jarvis — an AI assistant project integrating chat and small automations.",
+    "live": "#"
+  },
+  {
+    "id": 102,
+    "title": "Goldride Reklama",
+    "category": "web",
+    "icon": "fas fa-bullhorn",
+    "description": "Goldride — taxi app promotional website and marketing landing page.",
+    "live": "#"
+  },
+  {
+    "id": 103,
+    "title": "Office Face Greeting (Buildathon)",
+    "category": "web",
+    "icon": "fas fa-face-smile",
+    "description": "Face recognition greeting system — admin can add faces, users are recognized automatically.",
+    "live": "#"
+  },
+  {
+    "id": 104,
+    "title": "Savdogar",
+    "category": "web",
+    "icon": "fas fa-store",
+    "description": "Automation tools for trade firms and small businesses.",
+    "live": "#"
+  },
+  {
+    "id": 105,
+    "title": "Avto-X",
+    "category": "web",
+    "icon": "fas fa-car",
+    "description": "Automation platform for driving schools and course management.",
+    "live": "#"
+  },
+  {
+    "id": 106,
+    "title": "CT-Website",
+    "category": "web",
+    "icon": "fas fa-shield-alt",
+    "description": "Cyber security showcase and services site (selected cyber team project).",
+    "live": "#"
+  },
+  {
+    "id": 107,
+    "title": "Telegram (Nine Steel)",
+    "category": "web",
+    "icon": "fab fa-telegram",
+    "description": "Informational website for Telegram-based project.",
+    "live": "#"
+  },
+  {
+    "id": 108,
+    "title": "Felix Motors",
+    "category": "web",
+    "icon": "fas fa-car-side",
+    "description": "Promotional website for Felix Motors (advertising site).",
+    "live": "#"
+  },
+  {
+    "id": 109,
+    "title": "Fond Dashboard",
+    "category": "web",
+    "icon": "fas fa-chart-line",
+    "description": "Dashboard for managing teacher funds and grants.",
+    "live": "#"
+  },
+  {
+    "id": 110,
+    "title": "CMD — DevOps Command Center",
+    "category": "web",
+    "icon": "fas fa-terminal",
+    "description": "Single-page DevOps command UI and tools showcase (prompt-driven).",
+    "live": "#"
+  },
+  {
+    "id": 111,
+    "title": "Avtoinstruktor ZOR-777",
+    "category": "web",
+    "icon": "fas fa-road",
+    "description": "Driving school website with scheduling and student management features.",
+    "live": "#"
+  },
+  {
+    "id": 112,
+    "title": "Generator Sticker",
+    "category": "web",
+    "icon": "fas fa-sticky-note",
+    "description": "Sticker generator utility for creating custom stickers.",
+    "live": "#"
+  },
+  {
+    "id": 113,
+    "title": "Instagram.com (Clone)",
+    "category": "web",
+    "icon": "fab fa-instagram",
+    "description": "A functioning Instagram-like clone built with a working API.",
+    "live": "#"
+  }
+]

@@ -1,0 +1,71 @@
+{
+  "testimonials": [
+    {
+      "id": 1,
+      "author": "Nizomiddin",
+      "role": "Teacher, Mars IT School",
+      "text": "Islombek shows outstanding focus and rapid improvement — his projects are practical, well-structured and delivered with care. Highly recommended for real client work."
+    },
+    {
+      "id": 2,
+      "author": "Mirfozil Mirsharipov",
+      "role": "Teacher, Mars IT School",
+      "text": "A curious and disciplined student — Islombek quickly applies feedback and produces clean, maintainable code with thoughtful UX."
+    },
+    {
+      "id": 3,
+      "author": "Jamshid Ergashov",
+      "role": "Client",
+      "text": "Professional and reliable — delivered the project with great communication and attention to detail."
+    }
+  ],
+  "certificates": [
+    {
+      "id": "b1",
+      "title": "Buildathon — Winner (Week 1)",
+      "issuer": "Buildathon",
+      "date": "2026-04-23"
+    },
+    {
+      "id": "b2",
+      "title": "Buildathon — Runner-up (Week 2)",
+      "issuer": "Buildathon",
+      "date": "2026-04-30"
+    },
+    {
+      "id": "b3",
+      "title": "Buildathon — Special Prize (Week 3)",
+      "issuer": "Buildathon",
+      "date": "2026-05-07"
+    },
+    {
+      "id": "b4",
+      "title": "Buildathon — Highlight (Week 4)",
+      "issuer": "Buildathon",
+      "date": "2026-05-14"
+    },
+    {
+      "id": "h1",
+      "title": "Hackathon — 1st place",
+      "issuer": "Mars IT / National Hackathon",
+      "date": "2024"
+    },
+    {
+      "id": "h2",
+      "title": "Hackathon — 2nd place (Backend Battle)",
+      "issuer": "Various",
+      "date": "2024"
+    }
+  ],
+  "contact": {
+    "email": "mansurovislombek130@gmail.com",
+    "phone": "+998997901553",
+    "location": "Tashkent, Uzbekistan",
+    "links": {
+      "github": "https://github.com",
+      "linkedin": "https://www.linkedin.com/in/islombek-mansurov-108522375/",
+      "telegram": "https://t.me/its_mansurov",
+      "instagram": "https://www.instagram.com/mansurov_18.09/"
+    }
+  }
+}

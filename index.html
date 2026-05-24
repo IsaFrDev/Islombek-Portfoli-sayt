@@ -1,0 +1,562 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IsaFsDev - Full Stack Developer</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta name="keywords" content="frontend developer, Islombek Mansurov, HTML CSS JS Python">
+    <link rel="canonical" href="https://isa-fsdev.github.io">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="loading" id="loading">
+        <div class="loader-content">
+            <div class="loader-logo">IM</div>
+            <div class="loader-text">Loading...</div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <div id="particles-container"></div>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+    <header id="header">
+        <nav class="container">
+            <div class="logo">Mansurov</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li class="language-selector">
+                    <div id="google_translate_element"></div>
+                </li>
+                <li><button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+    <section class="hero reveal" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Islombek Mansurov</h1>
+                    <p class="typing-text">I am a <span class="typed-text" id="typedText"></span><span
+                            class="cursor-blink">|</span></p>
+                    <p class="about_skils">Full Stack Developer || html || css || java script || python</p>
+                    <div class="cta-buttons">
+                        <a href="#projects" class="btn btn-primary">
+                            <i class="fas fa-code"></i>
+                            View My Work
+                        </a>
+                        <a href="#contact" class="btn btn-outline">
+                            <i class="fas fa-envelope"></i>
+                            Get In Touch
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="avatar">
+                        <img class="isa" src="./isa.jpg" alt="Islombek Mansurov">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+                <p>Get to know more about who I am and what I do</p>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="about-avatar">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3>Hello, I'm Islombek!</h3>
+                    <p>
+                        I'm a 13-year-old frontend developer with a passion for creating beautiful and functional
+                        web applications. Despite my young age, I've been coding for several years and have
+                        developed a strong foundation in modern web technologies.
+                    </p>
+                    <p>
+                        I believe that age is just a number when it comes to creativity and problem-solving.
+                        I'm constantly learning new technologies and pushing myself to create better, more
+                        innovative solutions.
+                    </p>
+                    <p>
+                        When I'm not coding, I enjoy playing sports, which helps me stay active and maintain
+                        a healthy balance between screen time and physical activity.
+                    </p>
+                </div>
+            </div>
+            <div class="about-stats">
+                <div class="stat">
+                    <h4>2</h4>
+                    <p>Years of Experience</p>
+                </div>
+                <div class="stat">
+                    <h4>20+</h4>
+                    <p>Projects Completed</p>
+                </div>
+                <div class="stat">
+                    <h4>2</h4>
+                    <p>Technologies Mastered</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Skills</h2>
+                <p>Technologies, languages, and interests</p>
+            </div>
+            <div class="skills-container">
+                <div class="skills-section">
+                    <h3>Technical Skills</h3>
+                    <div class="skills-grid">
+                        <div class="skill-card" data-skill="90">
+                            <div class="skill-header">
+                                <div class="skill-icon">
+                                    <i class="fab fa-html5"></i>
+                                </div>
+                                <div class="skill-info">
+                                    <h4>HTML</h4>
+                                    <p>Semantic markup and structure</p>
+                                </div>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="--skill-level: 90%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-card" data-skill="85">
+                            <div class="skill-header">
+                                <div class="skill-icon">
+                                    <i class="fab fa-css3-alt"></i>
+                                </div>
+                                <div class="skill-info">
+                                    <h4>CSS</h4>
+                                    <p>Styling and responsive design</p>
+                                </div>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="--skill-level: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-card" data-skill="80">
+                            <div class="skill-header">
+                                <div class="skill-icon">
+                                    <i class="fab fa-js-square"></i>
+                                </div>
+                                <div class="skill-info">
+                                    <h4>JavaScript</h4>
+                                    <p>Interactive functionality</p>
+                                </div>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="--skill-level: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-card" data-skill="75">
+                            <div class="skill-header">
+                                <div class="skill-icon">
+                                    <i class="fab fa-python"></i>
+                                </div>
+                                <div class="skill-info">
+                                    <h4>Python</h4>
+                                    <p>Backend and automation</p>
+                                </div>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="--skill-level: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-card" data-skill="70">
+                            <div class="skill-header">
+                                <div class="skill-icon">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <div class="skill-info">
+                                    <h4>GitHub</h4>
+                                    <p>Version control and collaboration</p>
+                                </div>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="--skill-level: 70%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-card" data-skill="78">
+                            <div class="skill-header">
+                                <div class="skill-icon">
+                                    <i class="fas fa-wind"></i>
+                                </div>
+                                <div class="skill-info">
+                                    <h4>Tailwind CSS</h4>
+                                    <p>Utility-first CSS framework</p>
+                                </div>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="--skill-level: 78%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-section">
+                    <h3>Languages & Hobbies</h3>
+                    <div class="skills-grid">
+                        <div style="margin-bottom: 1.5rem;">
+                            <h4 style="margin-bottom: 1rem; color: var(--text-primary); font-size: 1.1rem;">Languages
+                            </h4>
+                            <div class="hobby-language-item">
+                                <div class="hobby-language-icon">UZ</div>
+                                <div class="hobby-language-info">
+                                    <h4>Uzbek</h4>
+                                    <p>Native Speaker</p>
+                                </div>
+                            </div>
+                            <div class="hobby-language-item">
+                                <div class="hobby-language-icon">RU</div>
+                                <div class="hobby-language-info">
+                                    <h4>Russian</h4>
+                                    <p>Fluent</p>
+                                </div>
+                            </div>
+                            <div class="hobby-language-item">
+                                <div class="hobby-language-icon">EN</div>
+                                <div class="hobby-language-info">
+                                    <h4>English</h4>
+                                    <p>Basic</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 style="margin-bottom: 1rem; color: var(--text-primary); font-size: 1.1rem;">Hobbies</h4>
+                            <div class="hobby-language-item">
+                                <div class="hobby-language-icon">⚽</div>
+                                <div class="hobby-language-info">
+                                    <h4>Football</h4>
+                                    <p>Playing and watching matches</p>
+                                </div>
+                            </div>
+                            <div class="hobby-language-item">
+                                <div class="hobby-language-icon">💻</div>
+                                <div class="hobby-language-info">
+                                    <h4>Coding</h4>
+                                    <p>Building cool projects</p>
+                                </div>
+                            </div>
+                            <div class="hobby-language-item">
+                                <div class="hobby-language-icon">📚</div>
+                                <div class="hobby-language-info">
+                                    <h4>Learning</h4>
+                                    <p>Exploring new technologies</p>
+                                </div>
+                            </div>
+                            <div class="hobby-language-item">
+                                <div class="hobby-language-icon">🎮</div>
+                                <div class="hobby-language-info">
+                                    <h4>Gaming</h4>
+                                    <p>Strategy and puzzle games</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Projects</h2>
+                <p>Some of the work I've done</p>
+            </div>
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="game">Game</button>
+                <button class="filter-btn" data-filter="app">App</button>
+            </div>
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Projects will be loaded dynamically via script.js -->
+            </div>
+        </div>
+    </section>
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Journey</h2>
+                <p>Experience and education timeline</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2023 - Present</div>
+                        <h3>Full Stack Developer</h3>
+                        <p>Self-learning and building projects with HTML, CSS, JavaScript, and Python</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2023 - 2024</div>
+                        <h3>Frontend Development Course</h3>
+                        <p>Mars IT School - Learned modern web development technologies</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2024 - 2025</div>
+                        <h3>Python Development</h3>
+                        <p>Mars IT School - Backend development and automation</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2025</div>
+                        <h3>Freelance Projects</h3>
+                        <p>Started taking client projects and building portfolio</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Testimonials</h2>
+                <p>What people say about my work</p>
+            </div>
+            <div class="testimonials-slider">
+                <!-- Original static testimonials (kept) -->
+                <div class="testimonial-card active">
+                    <div class="testimonial-content">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p>"Islombek is an incredibly talented young developer. His attention to detail and creativity
+                            are impressive for his age!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"><i class="fas fa-user"></i></div>
+                        <div class="author-info">
+                            <h4>Teacher</h4>
+                            <p>Mars IT School</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p>"Working with Islombek was a great experience. He delivered the project on time with
+                            excellent quality!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"><i class="fas fa-user"></i></div>
+                        <div class="author-info">
+                            <h4>Client</h4>
+                            <p>Web Project</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p>"His dedication to learning and improving is remarkable. A future star in web development!"
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"><i class="fas fa-user"></i></div>
+                        <div class="author-info">
+                            <h4>Mentor</h4>
+                            <p>Developer Community</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Dynamic testimonials will be appended here -->
+                <div id="dynamicTestimonials"></div>
+            </div>
+        </div>
+    </section>
+    <section id="certificates" class="certificates">
+        <div class="container">
+            <div class="section-title">
+                <h2>Certificates & Awards</h2>
+                <p>Recognition and achievements</p>
+            </div>
+            <div class="certificates-grid">
+                <!-- Original static certificates (kept) -->
+                <div class="certificate-card">
+                    <div class="certificate-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Frontend Development</h3>
+                    <p>Mars IT School</p>
+                    <span class="certificate-date">2023-2024</span>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-icon">
+                        <i class="fab fa-js-square"></i>
+                    </div>
+                    <h3>Python Development</h3>
+                    <p>Mars It School</p>
+                    <span class="certificate-date">2025</span>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Soccer tournament</h3>
+                    <p>Regional Competition Winner</p>
+                    <span class="certificate-date">2025</span>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <h3>Python Programming</h3>
+                    <p>Beginner to Intermediate</p>
+                    <span class="certificate-date">2025</span>
+                </div>
+                <!-- Dynamic certificates will be appended here -->
+                <div id="dynamicCertificates"></div>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Let's work together on your next project</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Connect!</h3>
+                    <p>
+                        I'm always interested in new opportunities and collaborations.
+                        Whether you have a project in mind or just want to say hello,
+                        feel free to reach out!
+                    </p>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>mansurovislombek130@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Tashkent, Uzbekistan</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+998 99 790 15 53</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com" class="social-link" title="GitHub" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/islombek-mansurov-108522375/" class="social-link"
+                            title="LinkedIn" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://t.me/its_mansurov" class="social-link" title="Telegram" target="_blank">
+                            <i class="fab fa-telegram-plane"></i>
+                        </a>
+                        <a href="https://www.instagram.com/mansurov_18.09/" class="social-link" title="Instagram"
+                            target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="message">
+                    <form id="contactForm">
+                        <p>Your Name* <br><input type="text" id="name" placeholder="Your Name" required></p>
+                        <p>Email* <br><input type="email" id="email" placeholder="Your Email" required></p>
+                        <p>Your Phone* <br><input type="number" id="phone" placeholder="Your Phone" required></p>
+                        <p>Subject* <br><input type="text" id="subject" placeholder="Your Subject" required></p>
+                        <button type="submit">Send message</button>
+                    </form>
+                    <div id="statusMessage" style="margin-top:10px;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Project Modal -->
+    <div class="project-modal" id="projectModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+            <div class="modal-image"><i class="fas fa-code"></i></div>
+            <h2 id="modalTitle">Project Title</h2>
+            <p id="modalDescription">Project description goes here...</p>
+            <div class="modal-tech">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span>
+            </div>
+            <div class="modal-links">
+                <a href="#" class="btn btn-outline"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Islombek Mansurov. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,ru,uz,fr,de,es,zh-CN,ja,ar,hi,pt,it,ko,tr,nl',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>
