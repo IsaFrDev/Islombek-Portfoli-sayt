@@ -784,7 +784,7 @@ section.reveal {
 .certificate-card {
     background: rgba(10, 14, 39, 0.6);
     border: 2px solid var(--border-neon);
-    padding: 2rem;
+    padding: 1.2rem 1rem;
     border-radius: 15px;
     box-shadow: var(--glow-neon);
     transition: all 0.3s ease;
@@ -792,7 +792,9 @@ section.reveal {
     backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
+    gap: 0.4rem;
 }
 
 [data-theme="light"] .certificate-card {
@@ -806,28 +808,31 @@ section.reveal {
 }
 
 .certificate-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 1rem;
+    width: 56px;
+    height: 56px;
+    margin: 0 auto;
     background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
-    border-radius: 15px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
+    font-size: 1.4rem;
     color: white;
     box-shadow: var(--glow-neon);
+    flex-shrink: 0;
 }
 
 .certificate-card h3 {
     color: var(--text-primary);
-    margin-bottom: 0.5rem;
-    font-size: 1.3rem;
+    font-size: 1rem;
+    line-height: 1.3;
+    margin: 0;
 }
 
 .certificate-card p {
     color: var(--text-secondary);
-    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    margin: 0;
 }
 
 .certificate-date {
