@@ -21,6 +21,42 @@
   ],
   "certificates": [
     {
+      "id": "c1",
+      "title": "Frontend Development",
+      "issuer": "Mars IT School",
+      "date": "2023-2024"
+    },
+    {
+      "id": "c2",
+      "title": "Python Development",
+      "issuer": "Mars IT School",
+      "date": "2025"
+    },
+    {
+      "id": "c3",
+      "title": "Python Programming",
+      "issuer": "Mars IT School",
+      "date": "2025"
+    },
+    {
+      "id": "c4",
+      "title": "Soccer Tournament — Regional Competition Winner",
+      "issuer": "Regional Competition",
+      "date": "2025"
+    },
+    {
+      "id": "h1",
+      "title": "Hackathon — 1st Place",
+      "issuer": "Mars IT / National Hackathon",
+      "date": "2024"
+    },
+    {
+      "id": "h2",
+      "title": "Hackathon — 2nd Place (Backend Battle)",
+      "issuer": "Various",
+      "date": "2024"
+    },
+    {
       "id": "b1",
       "title": "Buildathon — Winner (Week 1)",
       "issuer": "Buildathon",
@@ -43,18 +79,6 @@
       "title": "Buildathon — Highlight (Week 4)",
       "issuer": "Buildathon",
       "date": "2026-05-14"
-    },
-    {
-      "id": "h1",
-      "title": "Hackathon — 1st place",
-      "issuer": "Mars IT / National Hackathon",
-      "date": "2024"
-    },
-    {
-      "id": "h2",
-      "title": "Hackathon — 2nd place (Backend Battle)",
-      "issuer": "Various",
-      "date": "2024"
     }
   ],
   "contact": {
@@ -62,7 +86,7 @@
     "phone": "+998997901553",
     "location": "Tashkent, Uzbekistan",
     "links": {
-      "github": "https://github.com",
+      "github": "https://github.com/IsaFrDev",
       "linkedin": "https://www.linkedin.com/in/islombek-mansurov-108522375/",
       "telegram": "https://t.me/its_mansurov",
       "instagram": "https://www.instagram.com/mansurov_18.09/"

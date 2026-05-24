@@ -102,5 +102,13 @@
     "icon": "fab fa-instagram",
     "description": "A functioning Instagram-like clone built with a working API.",
     "live": "#"
+  },
+  {
+    "id": 114,
+    "title": "EDA — AI Calorie Calculator",
+    "category": "ai",
+    "icon": "fas fa-fire",
+    "description": "AI-powered app that analyzes your meals and calculates daily calorie intake with nutritional insights.",
+    "live": "https://isa-eda.lovable.app/"
   }
 ]
