@@ -776,8 +776,9 @@ section.reveal {
 
 .certificates-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
+    align-items: stretch;
 }
 
 .certificate-card {
@@ -789,6 +790,9 @@ section.reveal {
     transition: all 0.3s ease;
     text-align: center;
     backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 [data-theme="light"] .certificate-card {
@@ -1074,8 +1078,12 @@ footer {
         margin: 0 auto;
     }
 
-    .projects-grid, .certificates-grid {
+    .projects-grid {
         grid-template-columns: 1fr;
+    }
+
+    .certificates-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .project-filters {
@@ -1133,6 +1141,10 @@ body.menu-open {
 }
 
 @media (max-width: 480px) {
+    .certificates-grid {
+        grid-template-columns: 1fr;
+    }
+
     .hero-text h1 {
         font-size: 2rem;
     }
