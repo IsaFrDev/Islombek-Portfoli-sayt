@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -40,15 +40,26 @@
         <nav class="container">
             <div class="logo">Mansurov</div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#certificates">Certificates</a></li>
-                <li><a href="#contact">Contact</a></li>
-
+                <li><a href="#home" data-i18n="nav_home">Home</a></li>
+                <li><a href="#about" data-i18n="nav_about">About</a></li>
+                <li><a href="#skills" data-i18n="nav_skills">Skills</a></li>
+                <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
+                <li><a href="#experience" data-i18n="nav_experience">Experience</a></li>
+                <li><a href="#testimonials" data-i18n="nav_testimonials">Testimonials</a></li>
+                <li><a href="#certificates" data-i18n="nav_certificates">Certificates</a></li>
+                <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+                <li class="lang-selector-wrapper">
+                    <button class="lang-sel-btn" id="langSelBtn">
+                        <i class="fas fa-globe"></i>
+                        <span id="currentLangLabel">EN</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <ul class="lang-dropdown" id="langDropdown">
+                        <li data-lang="en">🇬🇧 EN</li>
+                        <li data-lang="uz">🇺🇿 UZ</li>
+                        <li data-lang="ru">🇷🇺 RU</li>
+                    </ul>
+                </li>
                 <li><button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button></li>
             </ul>
             <div class="mobile-menu">
@@ -63,17 +74,17 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <h1>Islombek Mansurov</h1>
-                    <p class="typing-text">I am a <span class="typed-text" id="typedText"></span><span
+                    <p class="typing-text"><span data-i18n="hero_i_am">I am a</span> <span class="typed-text" id="typedText"></span><span
                             class="cursor-blink">|</span></p>
-                    <p class="about_skils">Full Stack Developer || html || css || java script || python</p>
+                    <p class="about_skils" data-i18n="hero_skills">Full Stack Developer || html || css || java script || python</p>
                     <div class="cta-buttons">
                         <a href="#projects" class="btn btn-primary">
                             <i class="fas fa-code"></i>
-                            View My Work
+                            <span data-i18n="hero_cta_work">View My Work</span>
                         </a>
                         <a href="#contact" class="btn btn-outline">
                             <i class="fas fa-envelope"></i>
-                            Get In Touch
+                            <span data-i18n="hero_cta_contact">Get In Touch</span>
                         </a>
                     </div>
                 </div>
@@ -96,9 +107,9 @@
     <section id="about" class="about">
         <div class="container">
             <div class="section-title">
-                <span class="section-badge">01 // INTRODUCTION</span>
-                <h2>About Me</h2>
-                <p>Get to know more about who I am and what I do</p>
+                <span class="section-badge" data-i18n="about_badge">01 // INTRODUCTION</span>
+                <h2 data-i18n="about_title">About Me</h2>
+                <p data-i18n="about_sub">Get to know more about who I am and what I do</p>
             </div>
             <div class="about-content">
                 <div class="about-image">
@@ -107,18 +118,18 @@
                     </div>
                 </div>
                 <div class="about-text">
-                    <h3>Hello, I'm Islombek!</h3>
-                    <p>
+                    <h3 data-i18n="about_h3">Hello, I'm Islombek!</h3>
+                    <p data-i18n="about_p1">
                         I'm a 13-year-old frontend developer with a passion for creating beautiful and functional
                         web applications. Despite my young age, I've been coding for several years and have
                         developed a strong foundation in modern web technologies.
                     </p>
-                    <p>
+                    <p data-i18n="about_p2">
                         I believe that age is just a number when it comes to creativity and problem-solving.
                         I'm constantly learning new technologies and pushing myself to create better, more
                         innovative solutions.
                     </p>
-                    <p>
+                    <p data-i18n="about_p3">
                         When I'm not coding, I enjoy playing sports, which helps me stay active and maintain
                         a healthy balance between screen time and physical activity.
                     </p>
@@ -127,15 +138,15 @@
             <div class="about-stats">
                 <div class="stat">
                     <h4>2</h4>
-                    <p>Years of Experience</p>
+                    <p data-i18n="about_exp">Years of Experience</p>
                 </div>
                 <div class="stat">
                     <h4>20+</h4>
-                    <p>Projects Completed</p>
+                    <p data-i18n="about_projects">Projects Completed</p>
                 </div>
                 <div class="stat">
                     <h4>2</h4>
-                    <p>Technologies Mastered</p>
+                    <p data-i18n="about_techs">Technologies Mastered</p>
                 </div>
             </div>
         </div>
@@ -143,168 +154,131 @@
     <section id="skills" class="skills">
         <div class="container">
             <div class="section-title">
-                <span class="section-badge">02 // CAPABILITIES</span>
-                <h2>My Skills</h2>
-                <p>Technologies, languages, and interests</p>
+                <span class="section-badge" data-i18n="skills_badge">02 // CAPABILITIES</span>
+                <h2 data-i18n="skills_title">My Skills</h2>
+                <p data-i18n="skills_sub">Technologies, languages, and interests</p>
             </div>
             <div class="skills-container">
                 <div class="skills-section">
-                    <h3>Technical Skills</h3>
+                    <h3 data-i18n="skills_h3_tech">Technical Skills</h3>
                     <div class="skills-grid">
                         <div class="skill-card" data-skill="90">
                             <div class="skill-header">
-                                <div class="skill-icon">
-                                    <i class="fab fa-html5"></i>
-                                </div>
+                                <div class="skill-icon"><i class="fab fa-html5"></i></div>
                                 <div class="skill-info">
                                     <h4>HTML</h4>
-                                    <p>Semantic markup and structure</p>
+                                    <p data-i18n="skill_desc_html">Semantic markup and structure</p>
                                 </div>
                             </div>
-                            <div class="skill-progress">
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="--skill-level: 90%"></div>
-                                </div>
-                            </div>
+                            <div class="skill-progress"><div class="progress-bar"><div class="progress-fill" style="--skill-level: 90%"></div></div></div>
                         </div>
                         <div class="skill-card" data-skill="85">
                             <div class="skill-header">
-                                <div class="skill-icon">
-                                    <i class="fab fa-css3-alt"></i>
-                                </div>
+                                <div class="skill-icon"><i class="fab fa-css3-alt"></i></div>
                                 <div class="skill-info">
                                     <h4>CSS</h4>
-                                    <p>Styling and responsive design</p>
+                                    <p data-i18n="skill_desc_css">Styling and responsive design</p>
                                 </div>
                             </div>
-                            <div class="skill-progress">
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="--skill-level: 85%"></div>
-                                </div>
-                            </div>
+                            <div class="skill-progress"><div class="progress-bar"><div class="progress-fill" style="--skill-level: 85%"></div></div></div>
                         </div>
                         <div class="skill-card" data-skill="80">
                             <div class="skill-header">
-                                <div class="skill-icon">
-                                    <i class="fab fa-js-square"></i>
-                                </div>
+                                <div class="skill-icon"><i class="fab fa-js-square"></i></div>
                                 <div class="skill-info">
                                     <h4>JavaScript</h4>
-                                    <p>Interactive functionality</p>
+                                    <p data-i18n="skill_desc_js">Interactive functionality</p>
                                 </div>
                             </div>
-                            <div class="skill-progress">
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="--skill-level: 80%"></div>
-                                </div>
-                            </div>
+                            <div class="skill-progress"><div class="progress-bar"><div class="progress-fill" style="--skill-level: 80%"></div></div></div>
                         </div>
                         <div class="skill-card" data-skill="75">
                             <div class="skill-header">
-                                <div class="skill-icon">
-                                    <i class="fab fa-python"></i>
-                                </div>
+                                <div class="skill-icon"><i class="fab fa-python"></i></div>
                                 <div class="skill-info">
                                     <h4>Python</h4>
-                                    <p>Backend and automation</p>
+                                    <p data-i18n="skill_desc_python">Backend and automation</p>
                                 </div>
                             </div>
-                            <div class="skill-progress">
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="--skill-level: 75%"></div>
-                                </div>
-                            </div>
+                            <div class="skill-progress"><div class="progress-bar"><div class="progress-fill" style="--skill-level: 75%"></div></div></div>
                         </div>
                         <div class="skill-card" data-skill="70">
                             <div class="skill-header">
-                                <div class="skill-icon">
-                                    <i class="fab fa-github"></i>
-                                </div>
+                                <div class="skill-icon"><i class="fab fa-github"></i></div>
                                 <div class="skill-info">
                                     <h4>GitHub</h4>
-                                    <p>Version control and collaboration</p>
+                                    <p data-i18n="skill_desc_github">Version control and collaboration</p>
                                 </div>
                             </div>
-                            <div class="skill-progress">
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="--skill-level: 70%"></div>
-                                </div>
-                            </div>
+                            <div class="skill-progress"><div class="progress-bar"><div class="progress-fill" style="--skill-level: 70%"></div></div></div>
                         </div>
                         <div class="skill-card" data-skill="78">
                             <div class="skill-header">
-                                <div class="skill-icon">
-                                    <i class="fas fa-wind"></i>
-                                </div>
+                                <div class="skill-icon"><i class="fas fa-wind"></i></div>
                                 <div class="skill-info">
                                     <h4>Tailwind CSS</h4>
-                                    <p>Utility-first CSS framework</p>
+                                    <p data-i18n="skill_desc_tailwind">Utility-first CSS framework</p>
                                 </div>
                             </div>
-                            <div class="skill-progress">
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="--skill-level: 78%"></div>
-                                </div>
-                            </div>
+                            <div class="skill-progress"><div class="progress-bar"><div class="progress-fill" style="--skill-level: 78%"></div></div></div>
                         </div>
                     </div>
                 </div>
                 <div class="skills-section">
-                    <h3>Languages & Hobbies</h3>
+                    <h3 data-i18n="skills_h3_lang">Languages &amp; Hobbies</h3>
                     <div class="skills-grid">
                         <div style="margin-bottom: 1.5rem;">
-                            <h4 style="margin-bottom: 1rem; color: var(--text-primary); font-size: 1.1rem;">Languages
-                            </h4>
+                            <h4 style="margin-bottom: 1rem; color: var(--text-primary); font-size: 1.1rem;" data-i18n="skills_label_lang">Languages</h4>
                             <div class="hobby-language-item">
                                 <div class="hobby-language-icon">UZ</div>
                                 <div class="hobby-language-info">
-                                    <h4>Uzbek</h4>
-                                    <p>Native Speaker</p>
+                                    <h4 data-i18n="lang_uz">Uzbek</h4>
+                                    <p data-i18n="lang_uz_level">Native Speaker</p>
                                 </div>
                             </div>
                             <div class="hobby-language-item">
                                 <div class="hobby-language-icon">RU</div>
                                 <div class="hobby-language-info">
-                                    <h4>Russian</h4>
-                                    <p>Fluent</p>
+                                    <h4 data-i18n="lang_ru">Russian</h4>
+                                    <p data-i18n="lang_ru_level">Fluent</p>
                                 </div>
                             </div>
                             <div class="hobby-language-item">
                                 <div class="hobby-language-icon">EN</div>
                                 <div class="hobby-language-info">
-                                    <h4>English</h4>
-                                    <p>Basic</p>
+                                    <h4 data-i18n="lang_en">English</h4>
+                                    <p data-i18n="lang_en_level">Basic</p>
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <h4 style="margin-bottom: 1rem; color: var(--text-primary); font-size: 1.1rem;">Hobbies</h4>
+                            <h4 style="margin-bottom: 1rem; color: var(--text-primary); font-size: 1.1rem;" data-i18n="skills_label_hobbies">Hobbies</h4>
                             <div class="hobby-language-item">
                                 <div class="hobby-language-icon">⚽</div>
                                 <div class="hobby-language-info">
-                                    <h4>Football</h4>
-                                    <p>Playing and watching matches</p>
+                                    <h4 data-i18n="hobby_football">Football</h4>
+                                    <p data-i18n="hobby_football_desc">Playing and watching matches</p>
                                 </div>
                             </div>
                             <div class="hobby-language-item">
                                 <div class="hobby-language-icon">💻</div>
                                 <div class="hobby-language-info">
-                                    <h4>Coding</h4>
-                                    <p>Building cool projects</p>
+                                    <h4 data-i18n="hobby_coding">Coding</h4>
+                                    <p data-i18n="hobby_coding_desc">Building cool projects</p>
                                 </div>
                             </div>
                             <div class="hobby-language-item">
                                 <div class="hobby-language-icon">📚</div>
                                 <div class="hobby-language-info">
-                                    <h4>Learning</h4>
-                                    <p>Exploring new technologies</p>
+                                    <h4 data-i18n="hobby_learning">Learning</h4>
+                                    <p data-i18n="hobby_learning_desc">Exploring new technologies</p>
                                 </div>
                             </div>
                             <div class="hobby-language-item">
                                 <div class="hobby-language-icon">🎮</div>
                                 <div class="hobby-language-info">
-                                    <h4>Gaming</h4>
-                                    <p>Strategy and puzzle games</p>
+                                    <h4 data-i18n="hobby_gaming">Gaming</h4>
+                                    <p data-i18n="hobby_gaming_desc">Strategy and puzzle games</p>
                                 </div>
                             </div>
                         </div>
@@ -316,15 +290,15 @@
     <section id="projects" class="projects">
         <div class="container">
             <div class="section-title">
-                <span class="section-badge">03 // CREATIONS</span>
-                <h2>My Projects</h2>
-                <p>Some of the work I've done</p>
+                <span class="section-badge" data-i18n="projects_badge">03 // CREATIONS</span>
+                <h2 data-i18n="projects_title">My Projects</h2>
+                <p data-i18n="projects_sub">Some of the work I've done</p>
             </div>
             <div class="project-filters">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="web">Web</button>
-                <button class="filter-btn" data-filter="game">Game</button>
-                <button class="filter-btn" data-filter="app">App</button>
+                <button class="filter-btn active" data-filter="all" data-i18n="filter_all">All</button>
+                <button class="filter-btn" data-filter="web" data-i18n="filter_web">Web</button>
+                <button class="filter-btn" data-filter="game" data-i18n="filter_game">Game</button>
+                <button class="filter-btn" data-filter="app" data-i18n="filter_app">App</button>
             </div>
             <div class="projects-grid" id="projectsGrid">
                 <!-- Projects will be loaded dynamically via script.js -->
@@ -334,37 +308,37 @@
     <section id="experience" class="experience">
         <div class="container">
             <div class="section-title">
-                <span class="section-badge">04 // TIMELINE</span>
-                <h2>My Journey</h2>
-                <p>Experience and education timeline</p>
+                <span class="section-badge" data-i18n="journey_badge">04 // TIMELINE</span>
+                <h2 data-i18n="journey_title">My Journey</h2>
+                <p data-i18n="journey_sub">Experience and education timeline</p>
             </div>
             <div class="timeline">
                 <div class="timeline-item left">
                     <div class="timeline-content">
                         <div class="timeline-date">2023 - Present</div>
-                        <h3>Full Stack Developer</h3>
-                        <p>Self-learning and building projects with HTML, CSS, JavaScript, and Python</p>
+                        <h3 data-i18n="journey_item_role1">Full Stack Developer</h3>
+                        <p data-i18n="journey_item_desc1">Self-learning and building projects with HTML, CSS, JavaScript, and Python</p>
                     </div>
                 </div>
                 <div class="timeline-item right">
                     <div class="timeline-content">
                         <div class="timeline-date">2023 - 2024</div>
-                        <h3>Frontend Development Course</h3>
-                        <p>Mars IT School - Learned modern web development technologies</p>
+                        <h3 data-i18n="journey_item_role2">Frontend Development Course</h3>
+                        <p data-i18n="journey_item_desc2">Mars IT School - Learned modern web development technologies</p>
                     </div>
                 </div>
                 <div class="timeline-item left">
                     <div class="timeline-content">
                         <div class="timeline-date">2024 - 2025</div>
-                        <h3>Python Development</h3>
-                        <p>Mars IT School - Backend development and automation</p>
+                        <h3 data-i18n="journey_item_role3">Python Development</h3>
+                        <p data-i18n="journey_item_desc3">Mars IT School - Backend development and automation</p>
                     </div>
                 </div>
                 <div class="timeline-item right">
                     <div class="timeline-content">
                         <div class="timeline-date">2025</div>
-                        <h3>Freelance Projects</h3>
-                        <p>Started taking client projects and building portfolio</p>
+                        <h3 data-i18n="journey_item_role4">Freelance Projects</h3>
+                        <p data-i18n="journey_item_desc4">Started taking client projects and building portfolio</p>
                     </div>
                 </div>
             </div>
@@ -374,22 +348,20 @@
     <section id="testimonials" class="testimonials">
         <div class="container">
             <div class="section-title">
-                <span class="section-badge">05 // REPUTATION</span>
-                <h2>Testimonials</h2>
-                <p>What people say about my work</p>
+                <span class="section-badge" data-i18n="testi_badge">05 // REPUTATION</span>
+                <h2 data-i18n="testi_title">Testimonials</h2>
+                <p data-i18n="testi_sub">What people say about my work</p>
             </div>
             <div class="testimonials-slider">
-                <!-- Original static testimonials (kept) -->
                 <div class="testimonial-card active">
                     <div class="testimonial-content">
                         <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                        <p>"Islombek is an incredibly talented young developer. His attention to detail and creativity
-                            are impressive for his age!"</p>
+                        <p data-i18n="testi_quote1">"Islombek is an incredibly talented young developer. His attention to detail and creativity are impressive for his age!"</p>
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar"><i class="fas fa-user"></i></div>
                         <div class="author-info">
-                            <h4>Teacher</h4>
+                            <h4 data-i18n="testi_role1">Teacher</h4>
                             <p>Mars IT School</p>
                         </div>
                     </div>
@@ -397,13 +369,12 @@
                 <div class="testimonial-card">
                     <div class="testimonial-content">
                         <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                        <p>"Working with Islombek was a great experience. He delivered the project on time with
-                            excellent quality!"</p>
+                        <p data-i18n="testi_quote2">"Working with Islombek was a great experience. He delivered the project on time with excellent quality!"</p>
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar"><i class="fas fa-user"></i></div>
                         <div class="author-info">
-                            <h4>Client</h4>
+                            <h4 data-i18n="testi_role2">Client</h4>
                             <p>Web Project</p>
                         </div>
                     </div>
@@ -411,13 +382,12 @@
                 <div class="testimonial-card">
                     <div class="testimonial-content">
                         <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                        <p>"His dedication to learning and improving is remarkable. A future star in web development!"
-                        </p>
+                        <p data-i18n="testi_quote3">"His dedication to learning and improving is remarkable. A future star in web development!"</p>
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar"><i class="fas fa-user"></i></div>
                         <div class="author-info">
-                            <h4>Mentor</h4>
+                            <h4 data-i18n="testi_role3">Mentor</h4>
                             <p>Developer Community</p>
                         </div>
                     </div>
@@ -430,80 +400,59 @@
     <section id="certificates" class="certificates">
         <div class="container">
             <div class="section-title">
-                <span class="section-badge">06 // CREDENTIALS</span>
-                <h2>Certificates & Awards</h2>
-                <p>Recognition and achievements</p>
+                <span class="section-badge" data-i18n="certs_badge">06 // CREDENTIALS</span>
+                <h2 data-i18n="certs_title">Certificates &amp; Awards</h2>
+                <p data-i18n="certs_sub">Recognition and achievements</p>
             </div>
-            <div class="certificates-grid" id="dynamicCertificates">
-            </div>
+            <div class="certificates-grid" id="dynamicCertificates"></div>
         </div>
     </section>
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-title">
-                <span class="section-badge">07 // INQUIRY</span>
-                <h2>Get In Touch</h2>
-                <p>Let's work together on your next project</p>
+                <span class="section-badge" data-i18n="contact_badge">07 // INQUIRY</span>
+                <h2 data-i18n="contact_title">Get In Touch</h2>
+                <p data-i18n="contact_sub">Let's work together on your next project</p>
             </div>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>Let's Connect!</h3>
-                    <p>
-                        I'm always interested in new opportunities and collaborations.
-                        Whether you have a project in mind or just want to say hello,
-                        feel free to reach out!
-                    </p>
+                    <h3 data-i18n="contact_h3">Let's Connect!</h3>
+                    <p data-i18n="contact_p">I'm always interested in new opportunities and collaborations. Whether you have a project in mind or just want to say hello, feel free to reach out!</p>
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                         <div>
-                            <h4>Email</h4>
+                            <h4 data-i18n="contact_email">Email</h4>
                             <p>mansurovislombek130@gmail.com</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <div>
-                            <h4>Location</h4>
+                            <h4 data-i18n="contact_location">Location</h4>
                             <p>Tashkent, Uzbekistan</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
                         <div>
-                            <h4>Phone</h4>
+                            <h4 data-i18n="contact_phone">Phone</h4>
                             <p>+998 99 790 15 53</p>
                         </div>
                     </div>
                     <div class="social-links">
-                        <a href="https://github.com" class="social-link" title="GitHub" target="_blank">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/islombek-mansurov-108522375/" class="social-link"
-                            title="LinkedIn" target="_blank">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://t.me/its_mansurov" class="social-link" title="Telegram" target="_blank">
-                            <i class="fab fa-telegram-plane"></i>
-                        </a>
-                        <a href="https://www.instagram.com/mansurov_18.09/" class="social-link" title="Instagram"
-                            target="_blank">
-                            <i class="fab fa-instagram"></i>
-                        </a>
+                        <a href="https://github.com" class="social-link" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/islombek-mansurov-108522375/" class="social-link" title="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://t.me/its_mansurov" class="social-link" title="Telegram" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="https://www.instagram.com/mansurov_18.09/" class="social-link" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="message">
                     <form id="contactForm">
-                        <p>Your Name* <br><input type="text" id="name" placeholder="Your Name" required></p>
-                        <p>Email* <br><input type="email" id="email" placeholder="Your Email" required></p>
-                        <p>Your Phone* <br><input type="number" id="phone" placeholder="Your Phone" required></p>
-                        <p>Subject* <br><input type="text" id="subject" placeholder="Your Subject" required></p>
-                        <button type="submit">Send message</button>
+                        <p><span data-i18n="contact_form_name">Your Name*</span><br><input type="text" id="name" data-i18n-placeholder="contact_form_name_placeholder" placeholder="Your Name" required></p>
+                        <p><span data-i18n="contact_form_email">Email*</span><br><input type="email" id="email" data-i18n-placeholder="contact_form_email_placeholder" placeholder="Your Email" required></p>
+                        <p><span data-i18n="contact_form_phone">Your Phone*</span><br><input type="number" id="phone" data-i18n-placeholder="contact_form_phone_placeholder" placeholder="Your Phone" required></p>
+                        <p><span data-i18n="contact_form_subject">Subject*</span><br><input type="text" id="subject" data-i18n-placeholder="contact_form_subject_placeholder" placeholder="Your Subject" required></p>
+                        <button type="submit" data-i18n="contact_form_btn">Send message</button>
                     </form>
                     <div id="statusMessage" style="margin-top:10px;"></div>
                 </div>
@@ -527,13 +476,14 @@
     </div>
     <footer>
         <div class="container">
-            <p>&copy; 2025 Islombek Mansurov. All Rights Reserved.</p>
+            <p>&copy; 2025 Islombek Mansurov. <span data-i18n="footer_rights">All Rights Reserved.</span></p>
         </div>
     </footer>
     <button class="back-to-top" id="backToTop">
         <i class="fas fa-arrow-up"></i>
     </button>
 
+    <script src="./i18n.js"></script>
     <script src="./script.js"></script>
 </body>
 

@@ -58,22 +58,39 @@ const observerOptions = {
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
-    if (!entry.isIntersecting) return;
     const el = entry.target;
-    el.classList.add("reveal");
+    if (entry.isIntersecting) {
+      el.classList.add("reveal");
 
-    if (el.id === "skills") {
-      const skillCards = el.querySelectorAll(".skill-card");
-      skillCards.forEach((card, index) => {
-        setTimeout(() => card.classList.add("animate"), index * 200);
-      });
-    }
+      if (el.id === "skills") {
+        const skillCards = el.querySelectorAll(".skill-card");
+        skillCards.forEach((card, index) => {
+          setTimeout(() => {
+            if (el.classList.contains("reveal")) {
+              card.classList.add("animate");
+            }
+          }, index * 200);
+        });
+      }
 
-    if (el.id === "experience") {
-      const items = el.querySelectorAll(".timeline-item");
-      items.forEach((it, idx) =>
-        setTimeout(() => it.classList.add("in-view"), idx * 180),
-      );
+      if (el.id === "experience") {
+        const items = el.querySelectorAll(".timeline-item");
+        items.forEach((it, idx) =>
+          setTimeout(() => {
+            if (el.classList.contains("reveal")) {
+              it.classList.add("in-view");
+            }
+          }, idx * 180),
+        );
+      }
+    } else {
+      el.classList.remove("reveal");
+      if (el.id === "skills") {
+        el.querySelectorAll(".skill-card").forEach(card => card.classList.remove("animate"));
+      }
+      if (el.id === "experience") {
+        el.querySelectorAll(".timeline-item").forEach(it => it.classList.remove("in-view"));
+      }
     }
   });
 }, observerOptions);
@@ -103,11 +120,11 @@ async function fetchProjects() {
         </div>
         <div class="project-content">
           <span class="project-category">${escapeHtml(p.category || "")}</span>
-          <h3>${escapeHtml(p.title || "")}</h3>
-          <p>${escapeHtml(p.description || "")}</p>
+          <h3 data-i18n="project_title_${p.id}">${escapeHtml(p.title || "")}</h3>
+          <p data-i18n="project_desc_${p.id}">${escapeHtml(p.description || "")}</p>
           <div class="project-links">
             <a href="${p.live || "#"}" target="_blank" class="project-link">
-              <i class="fas fa-external-link-alt"></i> Live Demo
+              <i class="fas fa-external-link-alt"></i> <span data-i18n="project_live_demo">Live Demo</span>
             </a>
           </div>
         </div>
@@ -124,6 +141,11 @@ async function fetchProjects() {
 
     // Re-initialize modal listeners for new cards
     initializeModalListeners();
+
+    // Re-translate dynamic text
+    if (typeof updatePageLanguage === "function") {
+      updatePageLanguage(localStorage.getItem("lang") || "en");
+    }
   } catch (err) {
     console.error("Failed to load projects:", err);
   }
@@ -195,14 +217,14 @@ if (contactForm) {
 
     if (!name || !email || !phone || !subject) {
       isValid = false;
-      statusMessage.innerHTML =
-        '<p style="color: #ff6b6b;">Iltimos, barcha maydonlarni to\'ldiring!</p>';
+      const msg = (typeof translations !== "undefined" && translations[localStorage.getItem("lang") || "en"]["contact_error_fill"]) || "Please fill all fields!";
+      statusMessage.innerHTML = `<p style="color: #ff6b6b;">${msg}</p>`;
       return;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       isValid = false;
-      statusMessage.innerHTML =
-        "<p style=\"color: #ff6b6b;\">Email noto'g'ri!</p>";
+      const msg = (typeof translations !== "undefined" && translations[localStorage.getItem("lang") || "en"]["contact_error_email"]) || "Invalid email!";
+      statusMessage.innerHTML = `<p style="color: #ff6b6b;">${msg}</p>`;
       return;
     }
 
@@ -215,16 +237,16 @@ if (contactForm) {
         });
         const data = await response.json();
         if (data.ok) {
-          statusMessage.innerHTML =
-            '<p style="color: #00ff88;">Xabar muvaffaqiyatli yuborildi! Tez orada javob beraman. ✨</p>';
+          const msg = (typeof translations !== "undefined" && translations[localStorage.getItem("lang") || "en"]["contact_success"]) || "Message sent successfully! ✨";
+          statusMessage.innerHTML = `<p style="color: #00ff88;">${msg}</p>`;
           contactForm.reset();
         } else {
-          statusMessage.innerHTML =
-            '<p style="color: #ff6b6b;">Xato yuz berdi. Qayta urinib ko\'ring.</p>';
+          const msg = (typeof translations !== "undefined" && translations[localStorage.getItem("lang") || "en"]["contact_error_general"]) || "Error occurred. Please try again.";
+          statusMessage.innerHTML = `<p style="color: #ff6b6b;">${msg}</p>`;
         }
       } catch (error) {
         statusMessage.innerHTML =
-          '<p style="color: #ff6b6b;">Server xatosi: ' + error.message + "</p>";
+          '<p style="color: #ff6b6b;">Server error: ' + error.message + "</p>";
       }
     }
   });
@@ -381,6 +403,11 @@ async function fetchSite() {
     renderTestimonials(site.testimonials || []);
     renderCertificates(site.certificates || []);
     updateContactLinks(site.contact || {});
+
+    // Re-translate dynamic text
+    if (typeof updatePageLanguage === "function") {
+      updatePageLanguage(localStorage.getItem("lang") || "en");
+    }
   } catch (err) {
     console.error("Site load error:", err);
   }
@@ -393,7 +420,7 @@ function renderTestimonials(list) {
   if (!container) return;
   if (!list || list.length === 0) {
     container.innerHTML =
-      '<p style="text-align:center; color:var(--text-secondary);">No testimonials yet.</p>';
+      '<p style="text-align:center; color:var(--text-secondary);" data-i18n="no_testimonials">No testimonials yet.</p>';
     return;
   }
   container.innerHTML = list
@@ -402,13 +429,13 @@ function renderTestimonials(list) {
     <div class="testimonial-card">
       <div class="testimonial-content">
         <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-        <p>${escapeHtml(t.text)}</p>
+        <p data-i18n="testimonial_text_${t.id}">${escapeHtml(t.text)}</p>
       </div>
       <div class="testimonial-author">
         <div class="author-avatar"><i class="fas fa-user"></i></div>
         <div class="author-info">
           <h4>${escapeHtml(t.author)}</h4>
-          <p>${escapeHtml(t.role || "")}</p>
+          <p data-i18n="testimonial_role_${t.id}">${escapeHtml(t.role || "")}</p>
         </div>
       </div>
     </div>
@@ -426,7 +453,7 @@ function renderCertificates(list) {
   if (!container) return;
   if (!list || list.length === 0) {
     container.innerHTML =
-      '<p style="text-align:center; color:var(--text-secondary);">No certificates yet.</p>';
+      '<p style="text-align:center; color:var(--text-secondary);" data-i18n="no_certificates">No certificates yet.</p>';
     return;
   }
   container.innerHTML = list
@@ -434,8 +461,8 @@ function renderCertificates(list) {
       (c) => `
     <div class="certificate-card holo-card">
       <div class="certificate-icon"><i class="fas fa-award"></i></div>
-      <h3>${escapeHtml(c.title)}</h3>
-      <p>${escapeHtml(c.issuer || "")}</p>
+      <h3 data-i18n="certificate_title_${c.id}">${escapeHtml(c.title)}</h3>
+      <p data-i18n="certificate_issuer_${c.id}">${escapeHtml(c.issuer || "")}</p>
       <span class="certificate-date">${escapeHtml(c.date || "")}</span>
     </div>
   `,
@@ -551,13 +578,6 @@ if (cursor && cursorFollower) {
 
 // 3. Typing Animation
 const typedTextElement = document.getElementById("typedText");
-const textArray = [
-  "Full Stack Developer",
-  "Frontend Expert",
-  "Python Developer",
-  "Problem Solver",
-  "Creative Coder",
-];
 let textIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
@@ -565,7 +585,19 @@ let isDeleting = false;
 function typeText() {
   if (!typedTextElement) return;
 
-  const currentText = textArray[textIndex];
+  const currentLang = localStorage.getItem("lang") || "en";
+  const texts = (typeof typingTextsDict !== "undefined" && typingTextsDict[currentLang]) || [
+    "Full Stack Developer",
+    "Frontend Expert",
+    "Python Developer",
+    "Problem Solver",
+    "Creative Coder",
+  ];
+
+  if (textIndex >= texts.length) {
+    textIndex = 0;
+  }
+  const currentText = texts[textIndex];
 
   if (isDeleting) {
     typedTextElement.textContent = currentText.substring(0, charIndex - 1);
@@ -582,7 +614,7 @@ function typeText() {
     isDeleting = true;
   } else if (isDeleting && charIndex === 0) {
     isDeleting = false;
-    textIndex = (textIndex + 1) % textArray.length;
+    textIndex = (textIndex + 1) % texts.length;
     typeSpeed = 500;
   }
 
@@ -945,6 +977,48 @@ console.log(" Portfolio enhancements loaded successfully!");
     }, { threshold: 0.1 }).observe(footer);
   }
 })();
+
+// Language selector initialization
+document.addEventListener("DOMContentLoaded", () => {
+  const langSelBtn = document.getElementById("langSelBtn");
+  const langDropdown = document.getElementById("langDropdown");
+  const defaultLang = localStorage.getItem("lang") || "en";
+
+  // Hydrate initial language
+  if (typeof updatePageLanguage === "function") {
+    updatePageLanguage(defaultLang);
+  }
+
+  if (langSelBtn && langDropdown) {
+    // Toggle dropdown on button click
+    langSelBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      langDropdown.classList.toggle("active");
+    });
+
+    // Close dropdown on click outside
+    document.addEventListener("click", () => {
+      langDropdown.classList.remove("active");
+    });
+
+    // Handle language item selection
+    langDropdown.querySelectorAll("li").forEach((item) => {
+      item.addEventListener("click", (e) => {
+        const selectedLang = item.getAttribute("data-lang");
+        if (selectedLang) {
+          localStorage.setItem("lang", selectedLang);
+          if (typeof updatePageLanguage === "function") {
+            updatePageLanguage(selectedLang);
+          }
+          // Reset textIndex to restart typing animation with new language
+          textIndex = 0;
+          charIndex = 0;
+          isDeleting = false;
+        }
+      });
+    });
+  }
+});
 
 
 
