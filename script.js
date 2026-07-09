@@ -1,4 +1,4 @@
-﻿const themeToggle = document.getElementById("themeToggle");
+const themeToggle = document.getElementById("themeToggle");
 const body = document.body;
 const icon = themeToggle ? themeToggle.querySelector("i") : null;
 const currentTheme =
@@ -6,15 +6,20 @@ const currentTheme =
   (window.matchMedia("(prefers-color-scheme: dark)").matches
     ? "dark"
     : "light");
-if (currentTheme === "dark") {
+
+if (currentTheme === "light") {
+  body.setAttribute("data-theme", "light");
+  if (icon) icon.className = "fas fa-moon";
+} else {
   body.setAttribute("data-theme", "dark");
   if (icon) icon.className = "fas fa-sun";
 }
+
 if (themeToggle) {
   themeToggle.addEventListener("click", () => {
-    const isDark = body.getAttribute("data-theme") === "dark";
+    const isDark = body.getAttribute("data-theme") === "dark" || !body.getAttribute("data-theme");
     if (isDark) {
-      body.removeAttribute("data-theme");
+      body.setAttribute("data-theme", "light");
       if (icon) icon.className = "fas fa-moon";
       localStorage.setItem("theme", "light");
     } else {
@@ -90,9 +95,12 @@ async function fetchProjects() {
     projectsGrid.innerHTML = "";
     list.forEach((p) => {
       const card = document.createElement("div");
-      card.className = "project-card";
+      card.className = "project-card holo-card";
       card.dataset.category = p.category || "";
       card.innerHTML = `
+        <div class="project-card-image-placeholder">
+          <i class="fas fa-laptop-code"></i>
+        </div>
         <div class="project-content">
           <span class="project-category">${escapeHtml(p.category || "")}</span>
           <h3>${escapeHtml(p.title || "")}</h3>
@@ -231,20 +239,12 @@ window.addEventListener("scroll", () => {
     backToTop.classList.remove("visible");
   }
   const header = document.getElementById("header");
-  if (window.pageYOffset > 100) {
-    header.style.background =
-      window.matchMedia("(prefers-color-scheme: dark)").matches ||
-      body.getAttribute("data-theme") === "dark"
-        ? "rgba(26, 32, 44, 0.98)"
-        : "rgba(255, 255, 255, 0.98)";
-    header.style.boxShadow = "0 2px 20px rgba(0,0,0,0.1)";
-  } else {
-    header.style.background =
-      window.matchMedia("(prefers-color-scheme: dark)").matches ||
-      body.getAttribute("data-theme") === "dark"
-        ? "rgba(26, 32, 44, 0.95)"
-        : "rgba(255, 255, 255, 0.95)";
-    header.style.boxShadow = "none";
+  if (header) {
+    if (window.pageYOffset > 50) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
   }
 });
 if (backToTop) backToTop.addEventListener("click", () => {
@@ -432,7 +432,7 @@ function renderCertificates(list) {
   container.innerHTML = list
     .map(
       (c) => `
-    <div class="certificate-card">
+    <div class="certificate-card holo-card">
       <div class="certificate-icon"><i class="fas fa-award"></i></div>
       <h3>${escapeHtml(c.title)}</h3>
       <p>${escapeHtml(c.issuer || "")}</p>
@@ -678,6 +678,37 @@ function setupTestimonialSlider() {
 
 // initialize on load
 setupTestimonialSlider();
+
+// 6. Timeline & Skill Card Scroll-In Animations
+const timelineItems = document.querySelectorAll(".timeline-item");
+const skillCards = document.querySelectorAll(".skill-card");
+
+const scrollInObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("in-view");
+      scrollInObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+timelineItems.forEach((item) => scrollInObserver.observe(item));
+
+const skillObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      const fill = entry.target.querySelector(".progress-fill");
+      const level = entry.target.dataset.skill;
+      if (fill && level) {
+        fill.style.setProperty("--skill-level", level + "%");
+        entry.target.classList.add("animate");
+      }
+      skillObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+skillCards.forEach((card) => skillObserver.observe(card));
 
 const projectModal = document.getElementById("projectModal");
 const modalClose = document.getElementById("modalClose");

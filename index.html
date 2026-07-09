@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -8,6 +8,9 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <meta name="keywords" content="frontend developer, Islombek Mansurov, HTML CSS JS Python">
     <link rel="canonical" href="https://isa-fsdev.github.io">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -24,6 +27,12 @@
     </div>
     <div class="scroll-progress" id="scrollProgress"></div>
     <div id="particles-container"></div>
+    <div class="blob-layer">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+    <div class="noise-overlay"></div>
     <div class="cursor" id="cursor"></div>
     <div class="cursor-follower" id="cursor-follower"></div>
     <header id="header">
@@ -70,8 +79,16 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <div class="avatar">
-                        <img class="isa" src="./isa.jpg" alt="Islombek Mansurov">
+                    <div class="avatar-wrapper">
+                        <div class="avatar">
+                            <img class="isa" src="./isa.jpg" alt="Islombek Mansurov">
+                        </div>
+                        <div class="tech-badge badge-1"><i class="fab fa-react"></i> React</div>
+                        <div class="tech-badge badge-2"><i class="fab fa-python"></i> Python</div>
+                        <div class="tech-badge badge-3"><i class="fab fa-js-square"></i> JavaScript</div>
+                        <div class="tech-badge badge-4"><i class="fas fa-database"></i> SQL / DB</div>
+                        <div class="avatar-ring ring-1"></div>
+                        <div class="avatar-ring ring-2"></div>
                     </div>
                 </div>
             </div>
@@ -80,6 +97,7 @@
     <section id="about" class="about">
         <div class="container">
             <div class="section-title">
+                <span class="section-badge">01 // INTRODUCTION</span>
                 <h2>About Me</h2>
                 <p>Get to know more about who I am and what I do</p>
             </div>
@@ -126,6 +144,7 @@
     <section id="skills" class="skills">
         <div class="container">
             <div class="section-title">
+                <span class="section-badge">02 // CAPABILITIES</span>
                 <h2>My Skills</h2>
                 <p>Technologies, languages, and interests</p>
             </div>
@@ -298,6 +317,7 @@
     <section id="projects" class="projects">
         <div class="container">
             <div class="section-title">
+                <span class="section-badge">03 // CREATIONS</span>
                 <h2>My Projects</h2>
                 <p>Some of the work I've done</p>
             </div>
@@ -315,6 +335,7 @@
     <section id="experience" class="experience">
         <div class="container">
             <div class="section-title">
+                <span class="section-badge">04 // TIMELINE</span>
                 <h2>My Journey</h2>
                 <p>Experience and education timeline</p>
             </div>
@@ -354,6 +375,7 @@
     <section id="testimonials" class="testimonials">
         <div class="container">
             <div class="section-title">
+                <span class="section-badge">05 // REPUTATION</span>
                 <h2>Testimonials</h2>
                 <p>What people say about my work</p>
             </div>
@@ -409,6 +431,7 @@
     <section id="certificates" class="certificates">
         <div class="container">
             <div class="section-title">
+                <span class="section-badge">06 // CREDENTIALS</span>
                 <h2>Certificates & Awards</h2>
                 <p>Recognition and achievements</p>
             </div>
@@ -419,6 +442,7 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-title">
+                <span class="section-badge">07 // INQUIRY</span>
                 <h2>Get In Touch</h2>
                 <p>Let's work together on your next project</p>
             </div>
