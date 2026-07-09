@@ -464,17 +464,7 @@ function updateContactLinks(contact) {
   });
 }
 
-const languageToggle = document.getElementById("languageToggle");
-const translateElement = document.getElementById("google_translate_element");
-if (languageToggle && translateElement) {
-  languageToggle.addEventListener("click", () => {
-    translateElement.style.display =
-      translateElement.style.display === "block" ? "none" : "block";
-  });
-} else if (translateElement) {
-  // show translate selector by default when the toggle button is removed
-  translateElement.style.display = "block";
-}
+
 
 const buttons = document.querySelectorAll(".btn");
 buttons.forEach((button) => {
@@ -956,53 +946,5 @@ console.log(" Portfolio enhancements loaded successfully!");
   }
 })();
 
-// =============================================================
-// CUSTOM LANGUAGE SELECTOR LOGIC
-// =============================================================
-(function initLanguageSelector() {
-  const langSelBtn = document.getElementById("langSelBtn");
-  const langDropdown = document.getElementById("langDropdown");
-  const currentLangLabel = document.getElementById("currentLangLabel");
 
-  if (langSelBtn && langDropdown) {
-    // Toggle dropdown
-    langSelBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      langDropdown.classList.toggle("show");
-    });
-
-    // Close dropdown on outside click
-    document.addEventListener("click", () => {
-      langDropdown.classList.remove("show");
-    });
-
-    // Handle language selection
-    langDropdown.querySelectorAll("li").forEach((item) => {
-      item.addEventListener("click", () => {
-        const lang = item.getAttribute("data-lang");
-        setLanguage(lang);
-      });
-    });
-  }
-
-  function setLanguage(lang) {
-    // Clear existing googtrans cookies for path/domain variations
-    document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + window.location.hostname;
-    document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    
-    if (lang !== "en") {
-      document.cookie = "googtrans=/en/" + lang + "; path=/; domain=" + window.location.hostname;
-      document.cookie = "googtrans=/en/" + lang + "; path=/;";
-    }
-    
-    localStorage.setItem("selectedLang", lang);
-    location.reload();
-  }
-
-  // Set active language text in UI on page load
-  const savedLang = localStorage.getItem("selectedLang") || "en";
-  if (currentLangLabel) {
-    currentLangLabel.textContent = savedLang.toUpperCase();
-  }
-})();
 
