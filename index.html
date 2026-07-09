@@ -48,8 +48,18 @@
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#certificates">Certificates</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li class="language-selector">
-                    <div id="google_translate_element"></div>
+                <li class="lang-selector-wrapper">
+                    <button class="lang-sel-btn" id="langSelBtn">
+                        <i class="fas fa-globe"></i>
+                        <span id="currentLangLabel">EN</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <ul class="lang-dropdown" id="langDropdown">
+                        <li data-lang="en">🇬🇧 English</li>
+                        <li data-lang="uz">🇺🇿 O'zbekcha</li>
+                        <li data-lang="ru">🇷🇺 Русский</li>
+                    </ul>
+                    <div id="google_translate_element" style="display: none !important;"></div>
                 </li>
                 <li><button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button></li>
             </ul>
@@ -539,7 +549,7 @@
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
                 pageLanguage: 'en',
-                includedLanguages: 'en,ru,uz,fr,de,es,zh-CN,ja,ar,hi,pt,it,ko,tr,nl',
+                includedLanguages: 'en,ru,uz',
                 layout: google.translate.TranslateElement.InlineLayout.SIMPLE
             }, 'google_translate_element');
         }
