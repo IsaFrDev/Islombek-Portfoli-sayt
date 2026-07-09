@@ -788,3 +788,141 @@ const clickSound = () => {
 };
 
 console.log(" Portfolio enhancements loaded successfully!");
+
+// =============================================================
+// MASTER SCROLL-REVEAL CONTROLLER
+// =============================================================
+(function initScrollReveal() {
+  const opts = { threshold: 0.15 };
+
+  // 1. Section Titles — clip-path wipe
+  new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add("title-revealed");
+      }
+    });
+  }, { threshold: 0.2 }).forEach
+    ? null
+    : void 0;
+  document.querySelectorAll(".section-title").forEach(el => {
+    new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add("title-revealed");
+        }
+      });
+    }, { threshold: 0.3 }).observe(el);
+  });
+
+  // 2. About image + text — left/right split
+  const aboutImg = document.querySelector(".about-image");
+  const aboutTxt = document.querySelector(".about-text");
+  if (aboutImg || aboutTxt) {
+    new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          if (aboutImg) aboutImg.classList.add("about-img-revealed");
+          if (aboutTxt) aboutTxt.classList.add("about-text-revealed");
+        }
+      });
+    }, opts).observe(document.getElementById("about") || document.body);
+  }
+
+  // 3. Stats — drop from above
+  new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll(".stat").forEach(s => s.classList.add("stat-revealed"));
+      }
+    });
+  }, opts).observe(document.querySelector(".about-stats") || document.body);
+
+  // 4. Timeline — grow like a tree
+  const timeline = document.querySelector(".timeline");
+  if (timeline) {
+    new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          timeline.classList.add("tree-growing");
+          // Items sprout after trunk starts growing
+          document.querySelectorAll(".timeline-item").forEach((item, i) => {
+            setTimeout(() => item.classList.add("in-view"), 300 + i * 320);
+          });
+        }
+      });
+    }, { threshold: 0.05 }).observe(timeline);
+  }
+
+  // 5. Certificates — burst from corners
+  const certGrid = document.querySelector(".certificates-grid");
+  if (certGrid) {
+    new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll(".certificate-card").forEach(c => c.classList.add("cert-revealed"));
+        }
+      });
+    }, { threshold: 0.1 }).observe(certGrid);
+  }
+
+  // 6. Project cards — pop up (also re-run after dynamic load)
+  function revealProjects() {
+    const projGrid = document.querySelector(".projects-grid");
+    if (!projGrid) return;
+    new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll(".project-card").forEach(c => c.classList.add("proj-revealed"));
+        }
+      });
+    }, { threshold: 0.05 }).observe(projGrid);
+  }
+  revealProjects();
+  // Re-observe after dynamic project fetch completes
+  setTimeout(revealProjects, 2500);
+
+  // 7. Hobbies & languages — slide left one by one
+  new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll(".hobby-language-item").forEach(i => i.classList.add("hobby-revealed"));
+      }
+    });
+  }, { threshold: 0.1 }).observe(document.getElementById("skills") || document.body);
+
+  // 8. Testimonials — fade+scale
+  const slider = document.querySelector(".testimonials-slider");
+  if (slider) {
+    new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) slider.classList.add("slider-revealed");
+      });
+    }, opts).observe(slider);
+  }
+
+  // 9. Contact — left / right split
+  const contactInfo = document.querySelector(".contact-info");
+  const contactMsg  = document.querySelector(".message");
+  if (contactInfo || contactMsg) {
+    new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          if (contactInfo) contactInfo.classList.add("contact-revealed");
+          if (contactMsg)  contactMsg.classList.add("message-revealed");
+        }
+      });
+    }, opts).observe(document.getElementById("contact") || document.body);
+  }
+
+  // 10. Footer — fade up
+  const footer = document.querySelector("footer");
+  if (footer) {
+    new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) footer.classList.add("footer-revealed");
+      });
+    }, { threshold: 0.1 }).observe(footer);
+  }
+})();
+

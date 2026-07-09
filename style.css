@@ -2192,3 +2192,386 @@ header.scrolled .nav-links a,
 header.scrolled .logo {
     text-shadow: none;
 }
+
+/* ==========================================================================
+   SCROLL-REVEAL ANIMATIONS — SENIOR LEVEL
+   ========================================================================== */
+
+/* Base hidden state for all scroll-reveal elements */
+[data-reveal],
+.reveal-left,
+.reveal-right,
+.reveal-up,
+.reveal-down,
+.reveal-zoom,
+.reveal-fade {
+    opacity: 0;
+    transition-property: opacity, transform;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    transition-duration: 0.9s;
+    will-change: opacity, transform;
+}
+
+/* Direction-specific starting transforms */
+.reveal-left   { transform: translateX(-60px); }
+.reveal-right  { transform: translateX(60px); }
+.reveal-up     { transform: translateY(50px); }
+.reveal-down   { transform: translateY(-50px); }
+.reveal-zoom   { transform: scale(0.85); }
+.reveal-fade   { transform: translateY(20px); }
+
+/* Triggered — all resolve to natural position */
+.reveal-left.revealed,
+.reveal-right.revealed,
+.reveal-up.revealed,
+.reveal-down.revealed,
+.reveal-zoom.revealed,
+.reveal-fade.revealed {
+    opacity: 1;
+    transform: none;
+}
+
+/* Stagger delays for grid children */
+.stagger-children > *:nth-child(1)  { transition-delay: 0.05s; }
+.stagger-children > *:nth-child(2)  { transition-delay: 0.15s; }
+.stagger-children > *:nth-child(3)  { transition-delay: 0.25s; }
+.stagger-children > *:nth-child(4)  { transition-delay: 0.35s; }
+.stagger-children > *:nth-child(5)  { transition-delay: 0.45s; }
+.stagger-children > *:nth-child(6)  { transition-delay: 0.55s; }
+.stagger-children > *:nth-child(7)  { transition-delay: 0.65s; }
+.stagger-children > *:nth-child(8)  { transition-delay: 0.75s; }
+.stagger-children > *:nth-child(9)  { transition-delay: 0.85s; }
+.stagger-children > *:nth-child(10) { transition-delay: 0.95s; }
+
+/* ==========================================================================
+   TIMELINE TREE — GROW FROM GROUND UP
+   ========================================================================== */
+
+/* The vertical line grows like a tree trunk */
+.timeline::before {
+    height: 0 !important;
+    animation: treeGrow 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-play-state: paused;
+}
+
+.timeline.tree-growing::before {
+    animation-play-state: running;
+}
+
+@keyframes treeGrow {
+    from { height: 0; }
+    to   { height: 100%; }
+}
+
+/* Timeline items sprout as branches */
+.timeline-item {
+    opacity: 0;
+    transform: translateY(40px) scale(0.92);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.timeline-item.left {
+    transform: translateX(-50px) scale(0.95);
+}
+
+.timeline-item.right {
+    transform: translateX(50px) scale(0.95);
+}
+
+.timeline-item.in-view {
+    opacity: 1;
+    transform: translateX(0) translateY(0) scale(1);
+}
+
+/* Timeline node pulse on appear */
+.timeline-item.in-view::after {
+    animation: nodePulse 0.6s ease 0.3s both;
+}
+
+@keyframes nodePulse {
+    0%   { transform: scale(0); opacity: 0; }
+    60%  { transform: scale(1.4); opacity: 1; }
+    100% { transform: scale(1);  opacity: 1; }
+}
+
+/* Stagger timeline items */
+.timeline-item:nth-child(1) { transition-delay: 0.2s; }
+.timeline-item:nth-child(2) { transition-delay: 0.5s; }
+.timeline-item:nth-child(3) { transition-delay: 0.8s; }
+.timeline-item:nth-child(4) { transition-delay: 1.1s; }
+.timeline-item:nth-child(5) { transition-delay: 1.4s; }
+.timeline-item:nth-child(6) { transition-delay: 1.7s; }
+
+/* ==========================================================================
+   CERTIFICATES — BURST FROM DIFFERENT CORNERS
+   ========================================================================== */
+
+/* Each card flies in from a unique random direction */
+.certificates-grid .certificate-card {
+    opacity: 0;
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.certificates-grid .certificate-card:nth-child(3n+1) {
+    transform: translateX(-80px) translateY(40px) rotate(-4deg);
+}
+
+.certificates-grid .certificate-card:nth-child(3n+2) {
+    transform: translateY(80px) scale(0.8);
+}
+
+.certificates-grid .certificate-card:nth-child(3n+3) {
+    transform: translateX(80px) translateY(40px) rotate(4deg);
+}
+
+.certificates-grid .certificate-card.cert-revealed {
+    opacity: 1;
+    transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+}
+
+/* Stagger certificate cards */
+.certificates-grid .certificate-card:nth-child(1)  { transition-delay: 0.05s; }
+.certificates-grid .certificate-card:nth-child(2)  { transition-delay: 0.15s; }
+.certificates-grid .certificate-card:nth-child(3)  { transition-delay: 0.25s; }
+.certificates-grid .certificate-card:nth-child(4)  { transition-delay: 0.35s; }
+.certificates-grid .certificate-card:nth-child(5)  { transition-delay: 0.45s; }
+.certificates-grid .certificate-card:nth-child(6)  { transition-delay: 0.55s; }
+.certificates-grid .certificate-card:nth-child(7)  { transition-delay: 0.65s; }
+.certificates-grid .certificate-card:nth-child(8)  { transition-delay: 0.75s; }
+.certificates-grid .certificate-card:nth-child(9)  { transition-delay: 0.85s; }
+
+/* Glow shimmer on reveal complete */
+.certificates-grid .certificate-card.cert-revealed:hover {
+    animation: certGlow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes certGlow {
+    from { box-shadow: var(--shadow-md), 0 0 10px hsla(var(--accent-green-hsl), 0.1); }
+    to   { box-shadow: var(--shadow-md), 0 0 25px hsla(var(--accent-green-hsl), 0.35); }
+}
+
+/* ==========================================================================
+   SKILL CARDS — SLIDE IN FROM ALTERNATING SIDES
+   ========================================================================== */
+
+.skill-card {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.skill-card:nth-child(odd)  { transform: translateX(-40px) translateY(20px); }
+.skill-card:nth-child(even) { transform: translateX(40px)  translateY(20px); }
+
+.skill-card.animate {
+    opacity: 1;
+    transform: none;
+}
+
+/* Stagger skill cards */
+.skills-grid .skill-card:nth-child(1) { transition-delay: 0.1s; }
+.skills-grid .skill-card:nth-child(2) { transition-delay: 0.2s; }
+.skills-grid .skill-card:nth-child(3) { transition-delay: 0.3s; }
+.skills-grid .skill-card:nth-child(4) { transition-delay: 0.4s; }
+.skills-grid .skill-card:nth-child(5) { transition-delay: 0.5s; }
+.skills-grid .skill-card:nth-child(6) { transition-delay: 0.6s; }
+.skills-grid .skill-card:nth-child(7) { transition-delay: 0.7s; }
+.skills-grid .skill-card:nth-child(8) { transition-delay: 0.8s; }
+
+/* ==========================================================================
+   PROJECT CARDS — POP UP WITH ROTATION
+   ========================================================================== */
+
+.project-card {
+    opacity: 0;
+    transform: translateY(60px) rotate(1deg);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.3s ease,
+                box-shadow 0.4s ease;
+}
+
+.project-card.proj-revealed {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+}
+
+.project-card:nth-child(1) { transition-delay: 0.05s; }
+.project-card:nth-child(2) { transition-delay: 0.18s; }
+.project-card:nth-child(3) { transition-delay: 0.31s; }
+.project-card:nth-child(4) { transition-delay: 0.44s; }
+.project-card:nth-child(5) { transition-delay: 0.57s; }
+.project-card:nth-child(6) { transition-delay: 0.70s; }
+
+/* ==========================================================================
+   SECTION TITLES — CLIP-PATH WIPE REVEAL
+   ========================================================================== */
+
+.section-title .section-badge {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.section-title h2 {
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+}
+
+.section-title p {
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.6s ease 0.5s, transform 0.6s ease 0.5s;
+}
+
+.section-title.title-revealed .section-badge {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-title.title-revealed h2 {
+    clip-path: inset(0 0% 0 0);
+}
+
+.section-title.title-revealed p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   STAT COUNTERS — DROP FROM ABOVE
+   ========================================================================== */
+
+.about-stats .stat {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.9);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-stats .stat.stat-revealed {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.about-stats .stat:nth-child(1) { transition-delay: 0.1s; }
+.about-stats .stat:nth-child(2) { transition-delay: 0.25s; }
+.about-stats .stat:nth-child(3) { transition-delay: 0.4s; }
+
+/* ==========================================================================
+   HOBBY / LANGUAGE ITEMS — SLIDE FROM LEFT ONE BY ONE
+   ========================================================================== */
+
+.hobby-language-item {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.hobby-language-item.hobby-revealed {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Stagger by child in parent */
+.skills-section:last-child .hobby-language-item:nth-child(1) { transition-delay: 0.1s; }
+.skills-section:last-child .hobby-language-item:nth-child(2) { transition-delay: 0.22s; }
+.skills-section:last-child .hobby-language-item:nth-child(3) { transition-delay: 0.34s; }
+.skills-section:last-child .hobby-language-item:nth-child(4) { transition-delay: 0.46s; }
+.skills-section:last-child .hobby-language-item:nth-child(5) { transition-delay: 0.58s; }
+
+/* ==========================================================================
+   TESTIMONIALS — FADE + SCALE
+   ========================================================================== */
+
+.testimonials-slider {
+    opacity: 0;
+    transform: scale(0.95) translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.testimonials-slider.slider-revealed {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+/* ==========================================================================
+   CONTACT SECTION — SPLIT LEFT/RIGHT
+   ========================================================================== */
+
+.contact-info {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contact-info.contact-revealed {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.message {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.15s,
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+}
+
+.message.message-revealed {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ==========================================================================
+   ABOUT SECTION REVEAL
+   ========================================================================== */
+
+.about-image {
+    opacity: 0;
+    transform: translateX(-60px) rotate(-3deg);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-image.about-img-revealed {
+    opacity: 1;
+    transform: translateX(0) rotate(0deg);
+}
+
+.about-text {
+    opacity: 0;
+    transform: translateX(60px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s,
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+}
+
+.about-text.about-text-revealed {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ==========================================================================
+   FOOTER — FADE UP
+   ========================================================================== */
+
+footer {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+footer.footer-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}

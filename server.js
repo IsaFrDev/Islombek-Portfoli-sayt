@@ -13,9 +13,9 @@ app.use(express.static(path.join(__dirname, ".")));
 
 // Admin Credentials (hardcoded for simplicity as requested)
 const ADMIN_USER="admin";
-const ADMIN_PASS="12345";
+const ADMIN_PASS="admin123";
 
-const BOT_TOKEN="8386006626:AAHw3V1BzjETgGI11OH_4imfslfz_r5BTSY";
+const BOT_TOKEN="8499165375:AAGvlR1TrfmwNcRhSdjFLn6UyA0ZGspqFek";
 const CHAT_ID="554103742";
 
 // Helper to read DB
@@ -251,25 +251,9 @@ app.post("/send", async (req, res)=> {
         messages.push(newMessage);
         await writeDB(MSG_PATH, messages);
 
-        const text=`📩 Yangi xabar:\n` + `👤 Ism: $ {
-            name
-        }
+        const text = `📩 Yangi xabar:\n👤 Ism: ${name}\n📧 Email: ${email}\n📱 Telefon: ${phone}\n📝 Mavzu: ${subject}`;
 
-        \n` + `📧 Email: $ {
-            email
-        }
-
-        \n` + `📱 Telefon: $ {
-            phone
-        }
-
-        \n` + `📝 Mavzu: $ {
-            subject
-        }
-
-        `;
-
-        const url=`https: //api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+        const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
 
         try {
             const response=await fetch(url, {
