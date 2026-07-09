@@ -687,7 +687,8 @@ const scrollInObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.classList.add("in-view");
-      scrollInObserver.unobserve(entry.target);
+    } else {
+      entry.target.classList.remove("in-view");
     }
   });
 }, { threshold: 0.15 });
@@ -703,7 +704,12 @@ const skillObserver = new IntersectionObserver((entries) => {
         fill.style.setProperty("--skill-level", level + "%");
         entry.target.classList.add("animate");
       }
-      skillObserver.unobserve(entry.target);
+    } else {
+      const fill = entry.target.querySelector(".progress-fill");
+      if (fill) {
+        fill.style.setProperty("--skill-level", "0%");
+      }
+      entry.target.classList.remove("animate");
     }
   });
 }, { threshold: 0.2 });
@@ -796,20 +802,13 @@ console.log(" Portfolio enhancements loaded successfully!");
   const opts = { threshold: 0.15 };
 
   // 1. Section Titles — clip-path wipe
-  new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add("title-revealed");
-      }
-    });
-  }, { threshold: 0.2 }).forEach
-    ? null
-    : void 0;
   document.querySelectorAll(".section-title").forEach(el => {
     new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
           e.target.classList.add("title-revealed");
+        } else {
+          e.target.classList.remove("title-revealed");
         }
       });
     }, { threshold: 0.3 }).observe(el);
@@ -824,6 +823,9 @@ console.log(" Portfolio enhancements loaded successfully!");
         if (e.isIntersecting) {
           if (aboutImg) aboutImg.classList.add("about-img-revealed");
           if (aboutTxt) aboutTxt.classList.add("about-text-revealed");
+        } else {
+          if (aboutImg) aboutImg.classList.remove("about-img-revealed");
+          if (aboutTxt) aboutTxt.classList.remove("about-text-revealed");
         }
       });
     }, opts).observe(document.getElementById("about") || document.body);
@@ -834,6 +836,8 @@ console.log(" Portfolio enhancements loaded successfully!");
     entries.forEach(e => {
       if (e.isIntersecting) {
         e.target.querySelectorAll(".stat").forEach(s => s.classList.add("stat-revealed"));
+      } else {
+        e.target.querySelectorAll(".stat").forEach(s => s.classList.remove("stat-revealed"));
       }
     });
   }, opts).observe(document.querySelector(".about-stats") || document.body);
@@ -847,7 +851,16 @@ console.log(" Portfolio enhancements loaded successfully!");
           timeline.classList.add("tree-growing");
           // Items sprout after trunk starts growing
           document.querySelectorAll(".timeline-item").forEach((item, i) => {
-            setTimeout(() => item.classList.add("in-view"), 300 + i * 320);
+            setTimeout(() => {
+              if (timeline.classList.contains("tree-growing")) {
+                item.classList.add("in-view");
+              }
+            }, 300 + i * 320);
+          });
+        } else {
+          timeline.classList.remove("tree-growing");
+          document.querySelectorAll(".timeline-item").forEach(item => {
+            item.classList.remove("in-view");
           });
         }
       });
@@ -861,6 +874,8 @@ console.log(" Portfolio enhancements loaded successfully!");
       entries.forEach(e => {
         if (e.isIntersecting) {
           e.target.querySelectorAll(".certificate-card").forEach(c => c.classList.add("cert-revealed"));
+        } else {
+          e.target.querySelectorAll(".certificate-card").forEach(c => c.classList.remove("cert-revealed"));
         }
       });
     }, { threshold: 0.1 }).observe(certGrid);
@@ -874,6 +889,8 @@ console.log(" Portfolio enhancements loaded successfully!");
       entries.forEach(e => {
         if (e.isIntersecting) {
           e.target.querySelectorAll(".project-card").forEach(c => c.classList.add("proj-revealed"));
+        } else {
+          e.target.querySelectorAll(".project-card").forEach(c => c.classList.remove("proj-revealed"));
         }
       });
     }, { threshold: 0.05 }).observe(projGrid);
@@ -887,6 +904,8 @@ console.log(" Portfolio enhancements loaded successfully!");
     entries.forEach(e => {
       if (e.isIntersecting) {
         e.target.querySelectorAll(".hobby-language-item").forEach(i => i.classList.add("hobby-revealed"));
+      } else {
+        e.target.querySelectorAll(".hobby-language-item").forEach(i => i.classList.remove("hobby-revealed"));
       }
     });
   }, { threshold: 0.1 }).observe(document.getElementById("skills") || document.body);
@@ -896,7 +915,11 @@ console.log(" Portfolio enhancements loaded successfully!");
   if (slider) {
     new IntersectionObserver((entries) => {
       entries.forEach(e => {
-        if (e.isIntersecting) slider.classList.add("slider-revealed");
+        if (e.isIntersecting) {
+          slider.classList.add("slider-revealed");
+        } else {
+          slider.classList.remove("slider-revealed");
+        }
       });
     }, opts).observe(slider);
   }
@@ -910,6 +933,9 @@ console.log(" Portfolio enhancements loaded successfully!");
         if (e.isIntersecting) {
           if (contactInfo) contactInfo.classList.add("contact-revealed");
           if (contactMsg)  contactMsg.classList.add("message-revealed");
+        } else {
+          if (contactInfo) contactInfo.classList.remove("contact-revealed");
+          if (contactMsg)  contactMsg.classList.remove("message-revealed");
         }
       });
     }, opts).observe(document.getElementById("contact") || document.body);
@@ -920,7 +946,11 @@ console.log(" Portfolio enhancements loaded successfully!");
   if (footer) {
     new IntersectionObserver((entries) => {
       entries.forEach(e => {
-        if (e.isIntersecting) footer.classList.add("footer-revealed");
+        if (e.isIntersecting) {
+          footer.classList.add("footer-revealed");
+        } else {
+          footer.classList.remove("footer-revealed");
+        }
       });
     }, { threshold: 0.1 }).observe(footer);
   }

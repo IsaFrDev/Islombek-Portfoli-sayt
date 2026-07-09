@@ -11,8 +11,8 @@ const MSG_PATH = path.join(ROOT, "db", "messages.json");
 const SITE_PATH = path.join(ROOT, "db", "site.json");
 
 const ADMIN_USER = "admin";
-const ADMIN_PASS = "12345";
-const BOT_TOKEN = "8386006626:AAHw3V1BzjETgGI11OH_4imfslfz_r5BTSY";
+const ADMIN_PASS = "admin123";
+const BOT_TOKEN = "8499165375:AAGvlR1TrfmwNcRhSdjFLn6UyA0ZGspqFek";
 const CHAT_ID = "554103742";
 
 async function readDB(filePath) {
