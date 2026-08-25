@@ -5,7 +5,7 @@
     "category": "web",
     "icon": "fas fa-robot",
     "description": "Jarvis — an AI assistant project integrating chat and small automations.",
-    "live": "#"
+    "live": "https://jarvis-ai-9.vercel.app"
   },
   {
     "id": 102,
@@ -13,15 +13,7 @@
     "category": "web",
     "icon": "fas fa-bullhorn",
     "description": "Goldride — taxi app promotional website and marketing landing page.",
-    "live": "#"
-  },
-  {
-    "id": 103,
-    "title": "Office Face Greeting (Buildathon)",
-    "category": "web",
-    "icon": "fas fa-face-smile",
-    "description": "Face recognition greeting system — admin can add faces, users are recognized automatically.",
-    "live": "#"
+    "live": "https://goldride.uz"
   },
   {
     "id": 104,
@@ -29,7 +21,7 @@
     "category": "web",
     "icon": "fas fa-store",
     "description": "Automation tools for trade firms and small businesses.",
-    "live": "#"
+    "live": "https://turify.xyz"
   },
   {
     "id": 105,
@@ -37,7 +29,7 @@
     "category": "web",
     "icon": "fas fa-car",
     "description": "Automation platform for driving schools and course management.",
-    "live": "#"
+    "live": "https://avto-x.vercel.app"
   },
   {
     "id": 106,
@@ -45,7 +37,7 @@
     "category": "web",
     "icon": "fas fa-shield-alt",
     "description": "Cyber security showcase and services site (selected cyber team project).",
-    "live": "#"
+    "live": "https://ct-website-red.vercel.app"
   },
   {
     "id": 107,
@@ -53,7 +45,7 @@
     "category": "web",
     "icon": "fab fa-telegram",
     "description": "Informational website for Telegram-based project.",
-    "live": "#"
+    "live": "https://telegram-nine-steel.vercel.app"
   },
   {
     "id": 108,
@@ -61,7 +53,7 @@
     "category": "web",
     "icon": "fas fa-car-side",
     "description": "Promotional website for Felix Motors (advertising site).",
-    "live": "#"
+    "live": "https://felix-motors.vercel.app"
   },
   {
     "id": 109,
@@ -69,7 +61,7 @@
     "category": "web",
     "icon": "fas fa-chart-line",
     "description": "Dashboard for managing teacher funds and grants.",
-    "live": "#"
+    "live": "https://fond-dashboard.vercel.app"
   },
   {
     "id": 110,
@@ -77,7 +69,7 @@
     "category": "web",
     "icon": "fas fa-terminal",
     "description": "Single-page DevOps command UI and tools showcase (prompt-driven).",
-    "live": "#"
+    "live": "https://cmd-gray.vercel.app"
   },
   {
     "id": 111,
@@ -85,7 +77,7 @@
     "category": "web",
     "icon": "fas fa-road",
     "description": "Driving school website with scheduling and student management features.",
-    "live": "#"
+    "live": "https://avtoinstruktor-zor-777.vercel.app"
   },
   {
     "id": 112,
@@ -93,15 +85,7 @@
     "category": "web",
     "icon": "fas fa-sticky-note",
     "description": "Sticker generator utility for creating custom stickers.",
-    "live": "#"
-  },
-  {
-    "id": 113,
-    "title": "Instagram.com (Clone)",
-    "category": "web",
-    "icon": "fab fa-instagram",
-    "description": "A functioning Instagram-like clone built with a working API.",
-    "live": "#"
+    "live": "https://generator-sticker.vercel.app"
   },
   {
     "id": 114,
